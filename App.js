@@ -6,10 +6,7 @@ import AddTask from "./components/AddTask";
 import { useState } from "react";
 
 export default function App() {
-  const [tasks, setTasks] = useState([
-    { id: 1, title: "hello" },
-    { id: 2, title: "hello2" },
-  ]);
+  const [tasks, setTasks] = useState([]);
   const deleteHandler = (id) => {
     setTasks((prevTasks) => {
       return prevTasks.filter((item) => item.id != id);

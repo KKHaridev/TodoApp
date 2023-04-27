@@ -13,8 +13,7 @@ import Item from "./Item";
 
 export default function TaskLists({ addHandler }) {
   const [task, setTask] = useState("");
-  if (!task) {
-  }
+
   return (
     <KeyboardAvoidingView
       behaviour={Platform.OS === "ios" ? "padding" : "height"}
@@ -27,10 +26,12 @@ export default function TaskLists({ addHandler }) {
         onChangeText={(text) => setTask(text)}
       />
       <TouchableOpacity
-        style={styles.add}
+        style={!task ? styles.addDis : styles.add}
         onPress={() => {
-          addHandler(task);
-          setTask("");
+          if (task) {
+            addHandler(task);
+            setTask("");
+          }
         }}
       >
         <Text>+</Text>
@@ -47,9 +48,10 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     paddingHorizontal: 15,
     paddingVertical: 15,
-    position: "absolute",
-    bottom: 30,
-    width: 320,
+    position: "relative",
+    flex: 1,
+    borderTopWidth: 1,
+    borderColor: "grey",
   },
   input: {
     borderWidth: 1,
@@ -59,7 +61,15 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     paddingHorizontal: 10,
   },
-
+  addDis: {
+    borderWidth: 1,
+    borderColor: "grey",
+    width: 40,
+    aspectRatio: 1 / 1,
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 20,
+  },
   add: {
     borderWidth: 1,
     borderColor: "#7E78D2",

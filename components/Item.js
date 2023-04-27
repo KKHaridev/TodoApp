@@ -11,9 +11,7 @@ import {
 } from "react-native";
 
 export default function Item({ item, deleteHandler }) {
-  onDeleteBTN = () => {
-    this.alert("hi");
-  };
+
   return (
     <TouchableOpacity style={styles.list}>
       <Text>{item.title}</Text>

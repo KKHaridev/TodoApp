@@ -2,7 +2,7 @@ import { FlatList, StyleSheet, Text, View } from "react-native";
 import { useState } from "react";
 import Item from "./Item";
 
-export default function TaskLists({ tasks,deleteHandler }) {
+export default function TaskLists({ tasks, deleteHandler }) {
   return (
     <View style={styles.container}>
       <FlatList
@@ -18,6 +18,7 @@ export default function TaskLists({ tasks,deleteHandler }) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#fff",
+    flex: 10,
+    paddingBottom: 10,
   },
 });
