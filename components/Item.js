@@ -11,13 +11,15 @@ import {
 } from "react-native";
 
 export default function Item({ item, deleteHandler }) {
-
   return (
     <TouchableOpacity style={styles.list}>
-      <Text>{item.title}</Text>
+      <View style={styles.todo}>
+        <Text style={{ fontSize: 20, fontWeight: "bold" }}>{item[1]}</Text>
+        <Text>{item[0]}</Text>
+      </View>
       <Pressable
         onPress={() =>
-          Alert.alert("Delete Todo", `${item.title}`, [
+          Alert.alert("Delete Todo", `${item[1]}`, [
             {
               text: "Cancel",
               onPress: () => console.log("Cancel Pressed"),
@@ -26,7 +28,7 @@ export default function Item({ item, deleteHandler }) {
             {
               text: "OK",
               onPress: () => {
-                deleteHandler(item.id);
+                deleteHandler(item[0]);
               },
             },
           ])
